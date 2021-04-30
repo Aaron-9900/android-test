@@ -16,10 +16,11 @@ import kotlinx.android.synthetic.main.job_posting_view_holder.view.*
 import kotlinx.android.synthetic.main.job_posting_view_holder.view.company_logo
 import kotlinx.android.synthetic.main.job_posting_view_holder.view.job_title
 import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var posting: JobPosting
-    private val navigator: Navigator by inject()
+    private val navigator: Navigator by inject { parametersOf(this) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)

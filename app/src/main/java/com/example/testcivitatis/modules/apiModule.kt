@@ -1,5 +1,6 @@
 package com.example.testcivitatis.modules
 
+import com.example.testcivitatis.datasource.remotedatasource.ApiConstants
 import com.example.testcivitatis.datasource.remotedatasource.GetJobPostingsApi
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
@@ -12,7 +13,7 @@ val apiModule = module {
             okHttp()
         }
         single {
-            retrofit("https://jobs.github.com/")
+            retrofit(ApiConstants.BASE_URL)
         }
         single {
             get<Retrofit>().create(GetJobPostingsApi::class.java)
